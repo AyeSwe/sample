@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+
+function getdata()
+{
+ var xhttp= new XMLHttpRequest();
+ 
+  xhttp.onreadystatechange = function(){
+	 
+	 if(xhttp.readyState==4 && xhttp.status==200){
+		 
+		 var javaobj =JSON.parse(xhttp.response);
+		 document.getElementById('div1').innerHTML=javaobj.text;
+	 }
+ }
+ 
+  xhttp.open("GET","twitt2.json", true)
+  xhttp.send();
+ 
+}
+</script>
+
+</head>
+<body>
+<input type ="button" name = "text" onclick="getdata()" value = "text"/>
+<div id ="div1"></div>
+
+</body>
+</html>
